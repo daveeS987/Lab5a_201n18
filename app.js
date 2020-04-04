@@ -10,8 +10,10 @@ Test this function by hand in the console to get it working, and when you think 
 // Write your code here
 function sum(a, b) { //eslint-disable-line
   var sum = a + b;
-  return [sum, 'The sum of ' + a + ' and ' + b + ' is ' + sum + '.'];
+  return [sum, 'The sum of ' + a + ' and ' + b + ' is ' + sum + '.']; 
 }
+
+//  [sum, string]  
 
 // Here is the test for sum(); uncomment it to run it
 testSum(4, 7);
@@ -51,11 +53,15 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sumAndMultiply(a, b, c) { //eslint-disable-line
-  var sum = a + b + c;
-  var product = a * b * c;
-  var sumString = a + ' and ' + b + ' and ' + c + ' sum to ' + sum + '.';
-  var productString = 'The product of ' + a + ' and ' + b + ' and ' + c + ' is ' + product + '.';
-  return [sum, product, sumString, productString];
+  var sumAB = sum(a,b)[0];
+  var sumABC = sum(sumAB,c)[0];
+  var productAB = multiply(a,b)[0];
+  var productABC = multiply(productAB,c)[0];
+
+  var sumString = a + ' and ' + b + ' and ' + c + ' sum to ' + sumABC + '.';
+  var productString = 'The product of ' + a + ' and ' + b + ' and ' + c + ' is ' + productABC + '.';
+
+  return [sumABC, productABC, sumString, productString];
 }
 
 // Here is the test for sumAndMultiply(); uncomment it to run it
